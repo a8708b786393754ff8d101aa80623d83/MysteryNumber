@@ -3,6 +3,8 @@
 #include <stdbool.h>
 #include <time.h>
 
+#define MAX_RAND 100
+
 int number_random(int max);
 
 int main(void)
@@ -10,6 +12,7 @@ int main(void)
     bool stop = false; 
     
     while (! stop){
+        int nb_rand = number_random(MAX_RAND);
         
     }
 
