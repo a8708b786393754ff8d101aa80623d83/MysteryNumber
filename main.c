@@ -3,17 +3,36 @@
 #include <stdbool.h>
 #include <time.h>
 
-#define MAX_RAND 100
+#define MAX_RAND 20
 
 int number_random(int max);
 
 int main(void)
 {
-    bool stop = false; 
-    
-    while (! stop){
-        int nb_rand = number_random(MAX_RAND);
-        
+    bool stop = false;
+    int nb_rand = number_random(MAX_RAND);
+    int number_enter;
+
+    while (!stop)
+    {
+        printf("Entrez un nombre: ");
+        scanf("%d", &number_enter);
+
+        if (number_enter == nb_rand)
+        {
+            printf("Vous avez trouver le bon nombre !");
+            stop = true;
+        }
+
+        else if (number_enter < nb_rand)
+        {
+            printf("Le nombre entrez est plus grand que le nombre mystere !\n");
+        }
+
+        else
+        {
+            printf("Le nombre entrez est plus petit que le nombre mystere !\n");
+        }
     }
 
     return 0;
@@ -22,5 +41,5 @@ int main(void)
 int number_random(int max)
 {
     srand(time(NULL));
-    return (rand() % max) ;
+    return (rand() % max);
 }
